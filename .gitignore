@@ -1,0 +1,29 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE settings
+.vscode/
+
+# Environment secrets
+.env
+.env.*
+
+# Build files
+build/
+dist/
+*.spec
+
+# Logs
+*.log
+
+# Temporary files
+.DS_Store
+Thumbs.db
