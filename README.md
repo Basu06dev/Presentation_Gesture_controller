@@ -25,7 +25,9 @@ PRESENTATION: slide navigation, drawing and brightness gestures are active.
 
 A small floating webcam window shows the live feed, the detected gesture, the hand (left or right), the finger states, the current mode and the FPS.
 
-🗂️ Project Structure
+### 🗂️ Project Structure
+
+```text
 Presentation_Gesture_controller/
 ├── main.py                  # Entry point: camera loop and gesture-to-action logic
 ├── app.py                   # Application setup
@@ -44,12 +46,16 @@ Presentation_Gesture_controller/
 │   └── presentation_controller.py   # Sends slide, start/end and brightness commands
 └── ui/
     └── status_overlay.py    # Mode, gesture and FPS overlay on the video feed
+```
+
+
 ⚙️ How It Works
 Capture: OpenCV reads frames from the webcam (1280×720) and mirrors them.
 Detect: HandTracker uses MediaPipe to find 21 hand landmarks (detection confidence 0.8, tracking confidence 0.9).
 Classify: GestureController turns the raised-finger pattern into a named gesture (open, four, fist, draw, brightness up/down).
 Act: PresentationController triggers keyboard and system actions through PyAutoGUI, and DrawingController draws on the overlay.
 Display: StatusOverlay and FloatingWindow show live feedback.
+
 🚀 Getting Started
 Prerequisites
 Python 3.9 – 3.11 (MediaPipe 0.10.14 does not support newer versions)
@@ -75,11 +81,13 @@ Run the app and show your hand to the camera.
 Hold an open hand for 2 seconds to start the presentation.
 Use the gestures from the table above.
 Press q to quit.
+
 💡 Tips for Best Results
 Use good, even lighting and a plain background.
 Keep your hand about 40–80 cm from the camera, fully inside the frame.
 Make gestures clearly, with fingers fully extended or fully folded.
 Keep the presentation window focused so keyboard commands reach it.
+
 🛠️ Troubleshooting
 Problem	Fix
 Cannot open webcam	Close other apps using the camera, or change the camera index in cv2.VideoCapture(0).
@@ -87,12 +95,14 @@ Gestures are flickery	Improve lighting, or raise the detection and tracking conf
 Slides don't change	Make sure the slideshow window is focused.
 Brightness doesn't change	Brightness control depends on your OS and hardware. Laptop displays usually work best.
 Install errors	Check you are on a supported Python version (3.9–3.11).
+
 🔭 Future Improvements
 Custom gesture mapping through config.py
 Laser-pointer mode
 Zoom in / out gestures
 Two-hand gestures
 Multi-camera support
+
 🤝 Contributing
 
 Contributions are welcome. Fork the repo, create a feature branch, and open a pull request.
